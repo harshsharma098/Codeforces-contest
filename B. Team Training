@@ -1,0 +1,37 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>  
+#include<utility>    
+#include<iterator>   
+#include<cmath>
+
+using namespace std;
+
+void team(vector<int> v,int n,int x){
+    sort(v.begin(), v.end(), greater<int>());
+    int t = 0, c = 0;
+    for (int i = 0; i < n; i++){
+        c++;
+        if (v[i] * c >= x){
+            t++;
+            c = 0;
+        }
+    }
+    cout << t << endl;
+    return;
+}
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n,x;
+        cin>>n>>x;
+        vector<int> v(n);
+        for(int j=0;j<n;j++){
+            cin>>v[j];
+        }
+        team(v,n,x);
+    }
+    return 0;
+}
