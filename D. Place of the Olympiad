@@ -1,0 +1,19 @@
+#include <iostream>
+#include <iterator>
+#include <cmath>
+using namespace std;
+void place(int m,int n,int k){
+    int x=(k+n-1)/n;
+    int a=m/(m-x+1);
+    cout<<a<<endl;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int m,n,k;
+        cin>>n>>m>>k;
+        place(m,n,k);
+    }
+    return 0;
+}
