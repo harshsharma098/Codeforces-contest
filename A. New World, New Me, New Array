@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() {
+   int t;
+   cin>>t;
+   while(t--){
+       int n,k,p;
+       int temp;
+       cin>>n>>k>>p;
+           if(k%p==0){
+               temp=abs(k/p);
+           }
+           else{
+               temp=abs(k/p)+1;
+           }
+           if(temp>n){
+               cout<<-1<<endl;
+           }
+           else{
+               cout<<temp<<endl;
+           }
+       }
+    return 0;
+}
