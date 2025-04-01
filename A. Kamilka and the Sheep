@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+int maxPleasure(vector<int>& a) {
+    int n = a.size();
+    if (n < 2) return 0; 
+    sort(a.begin(), a.end());
+    int minBeauty = a[0];
+    vector<int> dif;
+    for (int i = 1; i < n; i++) {
+        dif.push_back(a[i] - minBeauty);
+    }
+    int maxGCD = dif[0];
+    for (int i = 1; i < dif.size(); i++) {
+        maxGCD = max(maxGCD, dif[i]);
+    }
+    return maxGCD;
+}
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int num;
+        cin >> num;
+        vector<int> arr(num);
+        
+        for (int i = 0; i < num; i++) {
+            cin >> arr[i];
+        }
+        
+        cout << maxPleasure(arr) << endl;
+    }
+    return 0;
+}
