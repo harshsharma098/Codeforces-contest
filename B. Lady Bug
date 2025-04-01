@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+void checkPattern(int n, string a, string b) {
+    int CE1 = 0, CO0 = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0 && a[i] == '1') {
+            CE1++;
+        }
+        if (i % 2 == 1 && b[i] == '0') {
+            CO0++;
+        }
+    }
+    int CO1 = 0, CE0 = 0;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 1 && a[i] == '1') {
+            CO1++;
+        }
+        if (i % 2 == 0 && b[i] == '0') {
+            CE0++;
+        }
+    }
+ 
+    if (CE1 <= CO0 && CO1 <= CE0) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+}
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        string a, b;
+        cin >> a >> b;
+        checkPattern(n, a, b);
+    }
+    return 0;
+}
